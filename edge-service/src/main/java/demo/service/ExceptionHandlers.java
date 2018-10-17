@@ -14,15 +14,15 @@ import static org.springframework.http.ResponseEntity.status;
 @ControllerAdvice
 public class ExceptionHandlers {
 
-	@ExceptionHandler(Exception.class)
+    @ExceptionHandler(Exception.class)
     ResponseEntity<String> handleInternalServerError(final Exception cause) {
 
-		log.error("an internal error occurred: {}", cause.getMessage(), cause);
+        log.error("an internal error occurred: {}", cause.getMessage(), cause);
 
-		return status(INTERNAL_SERVER_ERROR)
-			.contentType(MediaType.TEXT_PLAIN)
-			.body(format("internal error: %s", cause.getMessage()));
+        return status(INTERNAL_SERVER_ERROR)
+            .contentType(MediaType.TEXT_PLAIN)
+            .body(format("internal error: %s", cause.getMessage()));
 
-	}
+    }
 
 }

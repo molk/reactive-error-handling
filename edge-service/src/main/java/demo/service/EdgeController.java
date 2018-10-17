@@ -46,12 +46,12 @@ public class EdgeController {
                 e -> new RuntimeException(e.getResponseBodyAsString(), e))
 
             .onErrorMap(
-				UnknownHostException.class,
-				e -> new RuntimeException("internal service address unknown: " + e.getMessage(), e))
+                UnknownHostException.class,
+                e -> new RuntimeException("internal service address unknown: " + e.getMessage(), e))
 
-			.onErrorMap(
-				ConnectException.class,
-				e -> new RuntimeException("internal service not available: data service", e));
+            .onErrorMap(
+                ConnectException.class,
+                e -> new RuntimeException("internal service not available: data service", e));
 
     }
 }
